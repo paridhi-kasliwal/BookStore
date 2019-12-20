@@ -17,7 +17,7 @@
                     <ul class="list-bookCard">
                         <li *ngFor="let book of bookList; let i = index">
                             <div class="box-bookCard">
-                                <figure class="img-bookCard"><img src="{{book?.formats['image/jpeg']}}" title="" alt=""></figure>
+                                <figure class="img-bookCard"><img src="{{book?.formats['image/jpeg']}}" title="" alt="" (click)="openBook(book)"></figure>
                                 <h4>{{book?.title}}</h4>
                                 <p>{{book?.authors[0]?.name}}</p>
                             </div>

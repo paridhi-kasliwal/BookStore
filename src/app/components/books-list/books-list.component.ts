@@ -74,4 +74,16 @@ export class BooksListComponent implements OnInit {
   onBookListScroll() {
     this.getBookListByTopic();
   }
+
+  openBook(book) {
+    let url;
+    if (book && book.formats && book.formats['text/html; charset=iso-8859-1']) {
+      url = book.formats['text/html; charset=iso-8859-1'];
+    } else if (book && book.formats && book.formats['text/plain']) {
+      url = book.formats['text/plain'];
+    } else {
+      alert('No viewable version available');
+    }
+    window.open(url, '_blank');
+  }
 }
