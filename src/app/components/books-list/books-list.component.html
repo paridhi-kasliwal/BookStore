@@ -1,0 +1,33 @@
+<ngx-spinner></ngx-spinner>
+
+<article id="wapper">
+    <section class="wapperInner">
+        <div class="container">
+            <div class="box-topBar">
+                <a class="link-back" href="javascript:void(0);" title="" (click)="goToCategoryPage()">{{selectedCategory}}</a>
+                <div class="box-search">
+                    <input class="input-search txt-type" type="text" name="" placeholder="Search" [(ngModel)]="search" (keydown)="onSearch($event)"/>
+                    <button *ngIf="search != ''" class="btn btn-cancel" (click)="clearSearch()"><img src="../../../assets/images/Cancel.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="box-bookCardMain">
+            <div class="container">
+                <div class="box-bookCardMainInn" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="3000" (scrolled)="onBookListScroll()" debounce>
+                    <ul class="list-bookCard">
+                        <li *ngFor="let book of bookList; let i = index">
+                            <div class="box-bookCard">
+                                <figure class="img-bookCard"><img src="{{book?.formats['image/jpeg']}}" title="" alt=""></figure>
+                                <h4>{{book?.title}}</h4>
+                                <p>{{book?.authors[0]?.name}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div *ngIf="bookList.length === 0 ">
+                        No Record Found
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>

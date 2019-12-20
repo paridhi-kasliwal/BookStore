@@ -1,0 +1,21 @@
+<article id="wapper">
+    <section class="wapperInner">
+        <div class="container">
+            <div class="box-heading">
+                <h1>Gutenberg Project</h1>
+                <p>
+                    A social cataloging website that allows you to freely search its database of books, annotations, and reviews.
+                </p>
+            </div>
+            <div class="row box-genreCard">
+                <ul class="list-genreCard">
+                    <li *ngFor="let topic of topicArray">
+                        <a href="javascript:void(0);" title="" (click)="goToBookList(topic.name)">
+                            <span><img [src]="topic.img_src" title="" alt=""></span> {{topic.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</article>
